@@ -1,11 +1,9 @@
-// src/routes.jsx
 import { Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-
-// Importa todos tus otros componentes de página
+import PrivateRoute from "./components/PrivateRoute";
 
 function AppRoutes() {
     return (
@@ -13,6 +11,8 @@ function AppRoutes() {
             <Route path="/" element={<Layout />}>
                 {/* La ruta con "index" renderiza el componente Home en la ruta padre "/" */}
                 <Route index element={<Home />} />
+                {/*Protegemos la ruta Task para acceder solo si estamos loged*/}
+                <Route path="task" element={<PrivateRoute> <Task/> </PrivateRoute>} />
             </Route>
             {/*Ruta para el login*/}
             <Route path="/login" element={<Login />} />
