@@ -17,7 +17,7 @@ export function AuthProvider({ children }) {
     }
     (async () => {
       try {
-        const res = await fetch(`${BASE}/perfil`, {
+        const res = await fetch(`${BASE}/me`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (res.ok) {
@@ -55,13 +55,13 @@ export function AuthProvider({ children }) {
     }
   }
 
-  async function register(email, password) {
+  async function register(username, email, password) {
     setLoading(true);
     try {
       const res = await fetch(`${BASE}/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ username, email, password }),
       });
       if (!res.ok) {
         const text = await res.text();
