@@ -67,7 +67,9 @@ export function AuthProvider({ children }) {
         const text = await res.text();
         throw new Error(text || "Error en registro");
       }
+      console.log("STATUS:", res.status);
       const data = await res.json();
+      console.log("DATA:", data);
     
       if (data.token) {
         localStorage.setItem("token", data.token);
