@@ -48,7 +48,7 @@ def login():
         return jsonify({"error": "Credenciales inválidas"}), 401
 
     access_token = create_access_token(
-        identity=user.id,
+        identity=str(user.id),
         expires_delta=timedelta(hours=1) 
     )
 
@@ -70,7 +70,10 @@ def logout():
 def me():
     user_id = get_jwt_identity()
     user = User.query.get(user_id)
-
+    
+    if not user:
+        return jsonify({"error": "Usuario no encontrado"}), 404
+    
     return jsonify({
         "id": user.id,
         "username": user.username,
