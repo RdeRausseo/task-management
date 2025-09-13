@@ -15,7 +15,7 @@ export default function Login() {
     e.preventDefault();
     try {
       await login(email, password);
-      navigate("task");
+      navigate("/task");
     } catch (err) {
       setError("Credenciales inválidas");
     }
