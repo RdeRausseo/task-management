@@ -33,8 +33,8 @@ export default function Layout() {
         </nav>
       </header>
 
-      {/* Contenido dinámico */}
-      <main className="flex-grow p-6">
+      {/* Contenido dinámico, SIEMPRE centrado */}
+      <main className="flex-grow flex items-center justify-center p-6">
         <Outlet />
       </main>
 
