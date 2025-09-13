@@ -1,0 +1,28 @@
+# Ignorar entorno virtual
+venv/
+
+# Ignorar dependencias (por si acaso usas node en frontend)
+node_modules/
+
+# Archivos de configuración local
+.env
+
+# Cachés y basura de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+
+# Archivos de compilación/IDE
+*.log
+*.pot
+*.py[cod]
+*.swp
+.DS_Store
+.vscode/
+.idea/
+
+# Archivos de build de React
+dist/
+build/
